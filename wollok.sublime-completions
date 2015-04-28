@@ -1,0 +1,12 @@
+{
+    "scope": "source.wollok",
+
+    "completions": [
+        { "trigger": "class\tNew class", "contents": "class $0 {\n}" },
+        { "trigger": "object\tNew object", "contents": "object $0 {\n}" },
+		{ "trigger": "method\tNew method", "contents": "method $0() {\n}" },
+		{ "trigger": "var\tNew variable", "contents": "var $0 = " },
+		{ "trigger": "return\tReturn statement", "contents": "return $0" },
+		{ "trigger": "if\tIf statement", "contents": "if ($0) {\n\t//\n}" }
+    ]
+}
