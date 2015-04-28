@@ -12,25 +12,120 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>match</key>
-			<string>(\b(and|or|not)\b)|(\+|-|%|#|\*|\/|\^|==?|~=|&lt;=?|&gt;=?|(?&lt;!\.)\.{2}(?!\.))</string>
-			<key>name</key>
-			<string>keyword.operator.source.wollok</string>
+			<key>include</key>
+			<string>#general</string>
 		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>commentBlock</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(//).*</string>
+					<key>name</key>
+					<string>comment.line.double-slash.source.wollok</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>/\*</string>
+					<key>end</key>
+					<string>\*/</string>
+					<key>name</key>
+					<string>comment.block.source.wollok</string>
+				</dict>
+			</array>
+		</dict>
+		<key>general</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#commentBlock</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operators</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#keywords</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#numbers</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#stringSingleQuote</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#stringDoubleQuote</string>
+				</dict>
+			</array>
+		</dict>
+		<key>keywords</key>
 		<dict>
 			<key>comment</key>
 			<string>Keywords</string>
 			<key>match</key>
-			<string>object|class|package|program|method|override|native|var|val|extends|new|if|else|elseif|this|import|null|true|false|return|throw|always|try</string>
+			<string>arturo|object|class|package|program|method|override|native|var|val|extends|new|if|else|elseif|this|import|null|true|false|return|throw|always|try|catch</string>
 			<key>name</key>
 			<string>keyword.source.wollok</string>
 		</dict>
+		<key>numbers</key>
 		<dict>
 			<key>match</key>
 			<string>(?&lt;![\d.])\s0x[a-fA-F\d]+|\b\d+(\.\d+)?([eE]-?\d+)?|\.\d+([eE]-?\d+)?</string>
 			<key>name</key>
 			<string>constant.numeric.source.wollok</string>
 		</dict>
+		<key>operators</key>
+		<dict>
+			<key>match</key>
+			<string>(\b(and|or|not)\b)|(\+|-|%|#|\*|\/|\^|==?|~=|&lt;=?|&gt;=?|(?&lt;!\.)\.{2}(?!\.))</string>
+			<key>name</key>
+			<string>keyword.operator.source.wollok</string>
+		</dict>
+		<key>stringDoubleQuote</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.source.wollok</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.source.wollok</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.source.wollok</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\(\d{1,3}|.)</string>
+					<key>name</key>
+					<string>constant.character.escape.source.wollok</string>
+				</dict>
+			</array>
+		</dict>
+		<key>stringSingleQuote</key>
 		<dict>
 			<key>begin</key>
 			<string>'</string>
@@ -64,59 +159,7 @@
 				</dict>
 			</array>
 		</dict>
-		<dict>
-			<key>begin</key>
-			<string>"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.source.wollok</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.source.wollok</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.double.lua</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\(\d{1,3}|.)</string>
-					<key>name</key>
-					<string>constant.character.escape.source.wollok</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>(//).*</string>
-					<key>name</key>
-					<string>comment.line.double-slash.source.wollok</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>/\*</string>
-					<key>end</key>
-					<string>\*/</string>
-					<key>name</key>
-					<string>comment.block.source.wollok</string>
-				</dict>
-			</array>
-		</dict>
-	</array>
+	</dict>
 	<key>scopeName</key>
 	<string>source.wollok</string>
 	<key>uuid</key>

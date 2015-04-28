@@ -4,43 +4,53 @@
   "fileTypes": ["wlk", "wpgm"],
   "uuid": "593a7982-2830-4b6c-99e1-e7b38fe99bc0",
 
-  "patterns": [
-  	{
+  "repository" : {
+    "general" : {
+        "patterns" : [
+        	{ "include": "#commentBlock" },
+            { "include": "#operators" },
+            { "include": "#keywords" },
+            { "include": "#numbers" },
+            { "include": "#stringSingleQuote" },
+            { "include": "#stringDoubleQuote" }
+        ]
+    },
+    "operators" : {
             "name": "keyword.operator.source.wollok",
             "match": "(\\b(and|or|not)\\b)|(\\+|-|%|#|\\*|\\/|\\^|==?|~=|<=?|>=?|(?<!\\.)\\.{2}(?!\\.))"
     },
-    { 
-    	"match": "object|class|package|program|method|override|native|var|val|extends|new|if|else|elseif|this|import|null|true|false|return|throw|always|try",
+    "keywords" : { 
+        "match": "arturo|object|class|package|program|method|override|native|var|val|extends|new|if|else|elseif|this|import|null|true|false|return|throw|always|try|catch",
         "name": "keyword.source.wollok",
         "comment": "Keywords"
     },
-    {
-    	"name": "constant.numeric.source.wollok",
+    "numbers" : {
+        "name": "constant.numeric.source.wollok",
         "match": "(?<![\\d.])\\s0x[a-fA-F\\d]+|\\b\\d+(\\.\\d+)?([eE]-?\\d+)?|\\.\\d+([eE]-?\\d+)?"
     },
-    {
-            "name": "string.quoted.single.source.wollok",
-            "begin": "'",
-            "beginCaptures": {
-                "0": {
-                    "name": "punctuation.definition.string.begin.source.wollok"
-                }
-            },
-            "end": "'",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.definition.string.end.source.wollok"
-                }
-            },
-            "patterns": [
-                {
-                    "match": "\\\\(\\d{1,3}|.)",
-                    "name": "constant.character.escape.source.wollok"
-                }
-            ]
+    "stringSingleQuote" : {
+        "name": "string.quoted.single.source.wollok",
+        "begin": "'",
+        "beginCaptures": {
+            "0": {
+                "name": "punctuation.definition.string.begin.source.wollok"
+            }
+        },
+        "end": "'",
+        "endCaptures": {
+            "0": {
+                "name": "punctuation.definition.string.end.source.wollok"
+            }
+        },
+        "patterns": [
+            {
+                "match": "\\\\(\\d{1,3}|.)",
+                "name": "constant.character.escape.source.wollok"
+            }
+        ]        
     },
-    {
-            "name": "string.quoted.double.lua",
+    "stringDoubleQuote" : {
+        "name": "string.quoted.double.source.wollok",
             "begin": "\"",
             "beginCaptures": {
                 "0": {
@@ -59,9 +69,9 @@
                     "name": "constant.character.escape.source.wollok"
                 }
             ]
-    }, 
-    {
-        "patterns": [
+    },
+    "commentBlock" : {
+    	"patterns": [
           { "match": "(//).*",
             "name": "comment.line.double-slash.source.wollok"
           },
@@ -70,7 +80,10 @@
             "name": "comment.block.source.wollok"
           }
         ]
-      }
+    }
+  },
+    "patterns": [
+        { "include": "#general" }
+    ]
 
-  ]
 }
