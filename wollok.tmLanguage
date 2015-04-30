@@ -73,7 +73,7 @@
 			<key>comment</key>
 			<string>Keywords</string>
 			<key>match</key>
-			<string>arturo|object|class|package|program|method|override|native|var|val|extends|new|if|else|elseif|this|import|null|true|false|return|throw|always|try|catch</string>
+			<string>object|class|package|program|method|override|native|var|val|extends|new|if|else|elseif|this|import|null|true|false|return|throw|always|try|catch</string>
 			<key>name</key>
 			<string>keyword.source.wollok</string>
 		</dict>
