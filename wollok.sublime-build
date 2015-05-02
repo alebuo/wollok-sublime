@@ -1,0 +1,5 @@
+{
+	"shell_cmd": "winterpreter",
+	"working_dir": "${project_path:${folder}}",
+	"selector": "source.wlk"
+}
