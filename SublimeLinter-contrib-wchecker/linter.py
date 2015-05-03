@@ -16,7 +16,7 @@ from SublimeLinter.lint import Linter, util
 class Wchecker(Linter):
 
     """Provides an interface to Wollok wchecker."""
-    
+
     syntax = ['wollok']
     extensions = ['wlk', 'wpgm', 'wtest']
 
@@ -27,14 +27,14 @@ class Wchecker(Linter):
     version_args = '--version'
     version_re = r'\bv(?P<version>\d+\.\d+\.\d+)'
     version_requirement = '>= 0.0.0'
-    
+
     regex = (
         r'^(?P<file>.+?):(?P<line>\d+):(?P<col>\d+) '
         r'(?:((?P<error>ERROR)|(?P<warning>WARNING))) '
         r'(?P<message>.+)'
     )
     multiline = False
-    
+
     line_col_base = (1, 1)
     tempfile_suffix = None
     error_stream = util.STREAM_BOTH
@@ -43,20 +43,19 @@ class Wchecker(Linter):
     defaults = {}
     inline_settings = None
     inline_overrides = None
-    
-    comment_re = r'\s*/[/*]'
 
+    comment_re = r'\s*/[/*]'
 
     def split_match(self, match):
         """
         Return the components of the match.
-        
+
         We override this because included header files can cause linter errors,
         and we only want errors from the linted file.
         """
 
         if match:
-           if match.group('file') != self.filename:
-               match = None
+            if match.group('file') != self.filename:
+                match = None
 
         return super().split_match(match)
