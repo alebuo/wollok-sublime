@@ -6,6 +6,7 @@
 	<array>
 		<string>wlk</string>
 		<string>wpgm</string>
+		<string>wtest</string>
 	</array>
 	<key>name</key>
 	<string>Wollok</string>

@@ -1,7 +1,7 @@
 // [PackageDev] target_format: plist, ext: tmLanguage
     { "name": "Wollok",
   "scopeName": "source.wollok",
-  "fileTypes": ["wlk", "wpgm"],
+  "fileTypes": ["wlk", "wpgm", "wtest"],
   "uuid": "593a7982-2830-4b6c-99e1-e7b38fe99bc0",
 
   "repository" : {
@@ -19,7 +19,7 @@
             "name": "keyword.operator.source.wollok",
             "match": "(\\b(and|or|not)\\b)|(\\+|-|%|#|\\*|\\/|\\^|==?|~=|<=?|>=?|(?<!\\.)\\.{2}(?!\\.))"
     },
-    "keywords" : { 
+    "keywords" : {
         "match": "object|class|package|program|method|override|constructor|native|var|const|property|extends|new|if|else|elseif|self|import|null|true|false|return|throw|always|try|catch",
         "name": "keyword.source.wollok",
         "comment": "Keywords"
@@ -47,7 +47,7 @@
                 "match": "\\\\(\\d{1,3}|.)",
                 "name": "constant.character.escape.source.wollok"
             }
-        ]        
+        ]
     },
     "stringDoubleQuote" : {
         "name": "string.quoted.double.source.wollok",
