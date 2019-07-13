@@ -20,7 +20,7 @@
             "match": "(\\b(and|or|not)\\b)|(\\+|-|%|#|\\*|\\/|\\^|==?|~=|<=?|>=?|(?<!\\.)\\.{2}(?!\\.))"
     },
     "keywords" : {
-        "match": "\b(object|class|package|program|test|describe|method|override|constructor|native|var|const|property|inherits|new|if|else|self|super|import|null|true|false|return|throw|then always|try|catch|mixed with|with|mixin|fixture)\b",
+        "match": "\\b(object|class|package|program|test|describe|method|override|constructor|native|var|const|property|inherits|new|if|else|self|super|import|null|true|false|return|throw|then always|try|catch|mixed with|with|mixin|fixture)\\b",
         "name": "keyword.source.wollok",
         "comment": "Keywords"
     },
