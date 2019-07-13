@@ -74,7 +74,7 @@
 			<key>comment</key>
 			<string>Keywords</string>
 			<key>match</key>
-			<string>object|class|package|program|method|override|constructor|native|var|const|property|extends|new|if|else|elseif|this|import|null|true|false|return|throw|always|try|catch</string>
+			<string>\b(object|class|package|program|test|describe|method|override|constructor|native|var|const|property|inherits|new|if|else|self|super|import|null|true|false|return|throw|then always|try|catch|mixed with|with|mixin|fixture)\b</string>
 			<key>name</key>
 			<string>keyword.source.wollok</string>
 		</dict>
